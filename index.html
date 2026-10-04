@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unleash your wild side | Join me in Kruger</title>
+<meta name="description" content="Kruger in the September 2027 recess, Skukuza to Satara. Small crew, campfires and guided game drives. Kgalagadi next. Come along.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ember:#FF8A3D;
+  --marula:#F2C14E;
+  --ash:#F1E9DA;
+  --ash-dim:#C9BFAE;
+  --soil:#1E1A16;
+  --olive:#8A9A5B;
+  --line:rgba(241,233,218,.18);
+  --display:"Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --body:"Newsreader", Georgia, "Times New Roman", serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0;
+  background:#3B2A55;
+  color:var(--ash);
+  font-family:var(--body);
+  font-size:1.125rem;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,svg{max-width:100%}
+a{color:var(--marula)}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible+label{
+  outline:3px solid var(--marula);outline-offset:3px;border-radius:4px
+}
+
+#stars{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0}
+main,footer{position:relative;z-index:1}
+
+.wrap{width:min(100% - 2.5rem, 72rem);margin-inline:auto}
+.prose{max-width:38rem}
+
+h1,h2,h3{font-family:var(--display);font-weight:900;line-height:.95;letter-spacing:.005em;margin:0}
+h2{font-size:clamp(2.6rem,7vw,4.75rem);margin-bottom:1.25rem}
+h3{font-size:1.75rem;font-weight:700;line-height:1.05;margin-bottom:.4rem}
+p{margin:0 0 1em}
+.lede{font-size:1.3rem;line-height:1.55;color:var(--ash)}
+.muted{color:var(--ash-dim)}
+section{padding:clamp(4.5rem,11vw,8rem) 0}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;min-height:100svh;padding:0;display:flex;flex-direction:column;justify-content:flex-start;
+  background:linear-gradient(180deg,#3B2A55 0%,#7A3E5A 30%,#C65D3B 55%,#F2A54A 74%,#F7C66E 82%);
+  overflow:hidden;
+}
+.hero-copy{position:relative;z-index:2;padding-top:clamp(3rem,10vh,7rem)}
+.hero h1{
+  font-size:clamp(4.2rem,15vw,12.5rem);
+  line-height:.82;
+  color:var(--ash);
+  text-shadow:0 2px 30px rgba(59,42,85,.35);
+}
+.hero .sub{
+  font-size:clamp(1.2rem,2.6vw,1.6rem);max-width:30rem;margin-top:1.25rem;line-height:1.45
+}
+.facts{display:flex;flex-wrap:wrap;gap:.6rem 2rem;margin-top:1.75rem;padding:0;list-style:none;font-family:var(--display);font-weight:700;font-size:1.35rem}
+.facts li span{display:block;font-family:var(--body);font-weight:400;font-size:.95rem;color:rgba(241,233,218,.8)}
+.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%;z-index:0;
+  animation:drift 14s cubic-bezier(.25,.6,.3,1) both}
+@keyframes drift{from{transform:scale(1.12)}to{transform:scale(1)}}
+.hero-shade{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(59,42,85,.88) 0%,rgba(59,42,85,.55) 28%,rgba(122,62,90,.15) 55%,rgba(30,26,22,.25) 78%,#3B2A55 100%)}
+.scroll-cue{position:absolute;z-index:3;left:50%;bottom:calc(1.25rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);
+  color:var(--ash);font-size:.95rem;text-decoration:none;opacity:.85}
+
+/* ---------- Plan ---------- */
+.plan-grid{display:grid;gap:3rem;grid-template-columns:1fr}
+@media(min-width:900px){.plan-grid{grid-template-columns:5fr 6fr;align-items:start}}
+.map{border:1px solid var(--line);border-radius:18px;padding:1rem;background:rgba(0,0,0,.12)}
+.map svg{display:block;width:100%;height:auto}
+.map figcaption{font-size:.9rem;color:var(--ash-dim);padding:.5rem .25rem 0}
+.keyrow{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;font-size:.9rem;color:var(--ash-dim);margin-top:.5rem}
+.keyrow i{display:inline-block;width:22px;height:3px;vertical-align:middle;margin-right:.4rem;border-radius:2px}
+
+/* ---------- Options ---------- */
+.options{display:grid;gap:2rem;grid-template-columns:1fr;margin-top:2.5rem}
+@media(min-width:860px){.options{grid-template-columns:1fr 1fr}}
+.opt{border:1px solid var(--line);border-radius:20px;padding:1.75rem 1.5rem;background:rgba(0,0,0,.14)}
+.opt.long{border-color:rgba(242,193,78,.5)}
+.opt h3{font-size:2.4rem;font-weight:900}
+.opt .price{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--marula);margin:.25rem 0 1rem}
+.opt .price span{font-family:var(--body);font-weight:400;font-size:1rem;color:var(--ash-dim)}
+.stops{list-style:none;margin:0 0 1rem;padding:0}
+.stops li{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;border-bottom:1px dashed var(--line)}
+.stops li b{font-weight:500}
+.stops li span{color:var(--ash-dim);white-space:nowrap}
+.opt p{font-size:1rem;color:var(--ash-dim);margin:0}
+/* ---------- Itinerary ---------- */
+.days{list-style:none;margin:2.5rem 0 0;padding:0;position:relative}
+.days::before{content:"";position:absolute;left:1.6rem;top:.5rem;bottom:.5rem;width:2px;background:linear-gradient(var(--marula),var(--ember),rgba(255,138,61,.15))}
+.day{position:relative;display:grid;grid-template-columns:3.2rem 1fr;gap:1.25rem;padding:0 0 2.75rem}
+.day-num{
+  width:3.2rem;height:3.2rem;border-radius:50%;display:grid;place-items:center;
+  font-family:var(--display);font-weight:900;font-size:1.5rem;color:#1F1A33;background:var(--marula);position:relative;z-index:1
+}
+.day:nth-child(n+3) .day-num{background:var(--ember)}
+.day-when{font-size:.95rem;color:var(--ash-dim);margin-bottom:.15rem}
+.day ul{margin:.5rem 0 0;padding-left:1.1rem}
+.day li{margin-bottom:.25rem}
+.drive-tag{display:inline-block;font-size:.85rem;border:1px solid var(--marula);color:var(--marula);border-radius:999px;padding:.05rem .65rem;margin-top:.5rem}
+
+/* ---------- Cost ---------- */
+.cost-grid{display:grid;gap:2.5rem;grid-template-columns:1fr}
+@media(min-width:900px){.cost-grid{grid-template-columns:1fr 1fr;align-items:start}}
+.controls{display:grid;gap:1.5rem}
+.control-label{font-family:var(--display);font-weight:700;font-size:1.3rem;margin-bottom:.5rem;display:block}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:4px;gap:4px;background:rgba(0,0,0,.18)}
+.seg button{
+  font:inherit;font-size:1rem;color:var(--ash);background:transparent;border:0;border-radius:999px;padding:.5rem 1.1rem;cursor:pointer;min-height:44px
+}
+.seg button[aria-pressed="true"]{background:var(--ash);color:#1F1A33}
+.stepper{display:inline-flex;align-items:center;gap:.75rem}
+.stepper button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(0,0,0,.18);color:var(--ash);font-size:1.4rem;cursor:pointer}
+.stepper output{font-family:var(--display);font-weight:900;font-size:2rem;min-width:2ch;text-align:center}
+.receipt{
+  background:var(--ash);color:#241C2E;border-radius:6px 6px 0 0;padding:1.75rem 1.5rem 2.25rem;position:relative;
+  box-shadow:0 30px 60px -30px rgba(0,0,0,.6);
+  -webkit-mask:radial-gradient(circle 9px at 50% 100%,transparent 98%,#000) 0 0/22px 100% repeat-x;
+          mask:radial-gradient(circle 9px at 50% 100%,transparent 98%,#000) 0 0/22px 100% repeat-x;
+  padding-bottom:2.75rem;
+}
+.receipt h3{font-size:1.5rem;color:#241C2E}
+.receipt table{width:100%;border-collapse:collapse;font-size:1rem;margin:1rem 0}
+.receipt td{padding:.45rem 0;border-bottom:1px dashed rgba(36,28,46,.25)}
+.receipt td:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.receipt .sub td{border-bottom:0;padding-top:.8rem;color:#5b5162}
+.total{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;border-top:2px solid #241C2E;padding-top:1rem}
+.total strong{font-family:var(--display);font-weight:900;font-size:clamp(3rem,9vw,4.5rem);line-height:1;color:#B4471A;font-variant-numeric:tabular-nums}
+.total span{font-size:1rem}
+.receipt .note{font-size:.92rem;color:#5b5162;margin:1rem 0 0}
+.pay{margin-top:2.5rem;display:grid;gap:1.5rem;grid-template-columns:1fr}
+@media(min-width:700px){.pay{grid-template-columns:repeat(3,1fr)}}
+.pay div{border-top:2px solid var(--marula);padding-top:.9rem}
+.pay h3{font-size:1.4rem}
+.pay p{font-size:1rem;color:var(--ash-dim);margin:0}
+.incl{display:grid;gap:2rem;grid-template-columns:1fr;margin-top:2.5rem}
+@media(min-width:700px){.incl{grid-template-columns:1fr 1fr}}
+.incl ul{margin:0;padding-left:1.1rem}
+.incl h3{font-size:1.4rem}
+
+/* ---------- Teams ---------- */
+.rota-wrap{overflow-x:auto;margin-top:2rem;border:1px solid var(--line);border-radius:14px;-webkit-overflow-scrolling:touch}
+.rota{border-collapse:collapse;width:100%;min-width:560px;font-size:1rem}
+.rota th,.rota td{padding:.85rem 1rem;text-align:left;border-bottom:1px solid var(--line)}
+.rota thead th{font-family:var(--display);font-weight:700;font-size:1.2rem}
+.rota tbody th{font-weight:500;white-space:nowrap}
+.rota tr:last-child td,.rota tr:last-child th{border-bottom:0}
+.duty-cook{color:var(--ember)}
+.duty-wash{color:#8FC6D9}
+.duty-camp{color:var(--marula)}
+.duty-free{color:var(--ash-dim);font-style:italic}
+.fixed{display:grid;gap:1.5rem;grid-template-columns:1fr;margin-top:2.5rem}
+@media(min-width:700px){.fixed{grid-template-columns:1fr 1fr}}
+.fixed div{border-left:3px solid var(--olive);padding-left:1.1rem}
+.fixed p{margin:0;color:var(--ash-dim)}
+
+/* ---------- Safety & packing ---------- */
+.two{display:grid;gap:3rem;grid-template-columns:1fr}
+@media(min-width:900px){.two{grid-template-columns:1fr 1fr}}
+.safety{list-style:none;margin:0;padding:0}
+.safety li{padding:.9rem 0;border-bottom:1px solid var(--line)}
+.safety li strong{display:block;font-family:var(--display);font-weight:700;font-size:1.3rem;letter-spacing:.01em}
+.safety li span{color:var(--ash-dim);font-size:1rem}
+.pack-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap}
+.pack-count{font-size:.95rem;color:var(--ash-dim)}
+.pack{list-style:none;margin:1rem 0 0;padding:0;columns:1}
+@media(min-width:520px){.pack{columns:2;column-gap:2rem}}
+.pack li{break-inside:avoid;padding:.2rem 0}
+.pack input{position:absolute;opacity:0;width:1px;height:1px}
+.pack label{display:flex;gap:.65rem;align-items:flex-start;cursor:pointer;padding:.3rem 0;font-size:1.02rem}
+.pack label::before{
+  content:"";flex:none;width:1.15rem;height:1.15rem;margin-top:.28rem;border:1.5px solid var(--ash-dim);border-radius:4px;transition:background .15s
+}
+.pack input:checked+label{color:var(--ash-dim);text-decoration:line-through;text-decoration-color:rgba(201,191,174,.6)}
+.pack input:checked+label::before{background:var(--marula);border-color:var(--marula);
+  box-shadow:inset 0 0 0 3px #15132a}
+.reset{font:inherit;font-size:.95rem;background:none;border:0;color:var(--marula);text-decoration:underline;cursor:pointer;padding:.5rem 0;margin-top:.5rem}
+
+/* ---------- Fire ---------- */
+.fire-section{
+  padding-bottom:0;
+  background:radial-gradient(ellipse 70% 45% at 50% 100%,rgba(255,138,61,.28),transparent 70%);
+}
+.nights{list-style:none;margin:2.25rem 0 0;padding:0;display:grid;gap:1.75rem;grid-template-columns:1fr}
+@media(min-width:760px){.nights{grid-template-columns:repeat(2,1fr)}}
+.nights li{border-top:1px solid var(--line);padding-top:1rem}
+.nights .when{font-size:.95rem;color:var(--ember)}
+.nights h3{font-size:1.6rem}
+.nights p{margin:0;color:var(--ash-dim);font-size:1rem}
+.fire{position:relative;width:180px;height:200px;margin:4rem auto 0}
+.flame{position:absolute;bottom:38px;left:50%;border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;transform-origin:50% 100%;filter:blur(1px);mix-blend-mode:screen}
+.f1{width:90px;height:140px;margin-left:-45px;background:radial-gradient(ellipse at 50% 85%,#FFE08A,#FF8A3D 45%,rgba(214,69,30,.0) 72%);animation:flick 1.6s ease-in-out infinite}
+.f2{width:60px;height:105px;margin-left:-40px;background:radial-gradient(ellipse at 50% 85%,#FFD46B,#FF6B2C 50%,transparent 72%);animation:flick 1.2s ease-in-out infinite reverse}
+.f3{width:55px;height:95px;margin-left:-8px;background:radial-gradient(ellipse at 50% 85%,#FFF1B8,#FF8A3D 50%,transparent 72%);animation:flick 1.9s ease-in-out infinite}
+@keyframes flick{0%,100%{transform:scaleY(1) skewX(0)}30%{transform:scaleY(1.08) skewX(2deg)}60%{transform:scaleY(.94) skewX(-3deg)}}
+.logs{position:absolute;bottom:20px;left:50%;width:170px;height:44px;margin-left:-85px}
+.glow{position:absolute;bottom:0;left:50%;width:340px;height:90px;margin-left:-170px;background:radial-gradient(ellipse at center,rgba(255,138,61,.35),transparent 70%)}
+
+
+/* ---------- Road ahead ---------- */
+.road{list-style:none;margin:2.75rem 0 0;padding:0;display:grid;gap:0;grid-template-columns:1fr;position:relative}
+.road li{position:relative;padding:0 0 2.25rem 2.25rem;border-left:2px dashed var(--line)}
+.road li:last-child{padding-bottom:0}
+.road li::before{content:"";position:absolute;left:-9px;top:.35rem;width:16px;height:16px;border-radius:50%;background:var(--soil);border:2px solid var(--ash-dim)}
+.road li.now::before{background:var(--ember);border-color:var(--ember)}
+.road li.dune::before{border-color:#D9603B}
+.road .yr{font-family:var(--display);font-weight:700;font-size:1.1rem;color:var(--ash-dim);display:block;margin-bottom:.15rem}
+.road li.now .yr{color:var(--ember)}
+.road li.dune .yr{color:#E07A52}
+.road h3{font-size:2.1rem;font-weight:900}
+.road p{font-size:1rem;color:var(--ash-dim);margin:0;max-width:22rem}
+.road-note{font-size:1rem;margin-top:2.25rem;max-width:38rem}
+@media (min-width:760px){
+  .road{grid-template-columns:repeat(3,1fr);gap:2rem}
+  .road li{border-left:0;border-top:2px dashed var(--line);padding:1.6rem 0 0 0}
+  .road li::before{left:0;top:-9px}
+}
+
+/* ---------- FAQ & join ---------- */
+.faq details{border-bottom:1px solid var(--line);padding:1.1rem 0}
+.faq summary{cursor:pointer;font-family:var(--display);font-weight:700;font-size:1.45rem;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-weight:500;color:var(--marula);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:.75rem 0 0;color:var(--ash-dim);max-width:38rem}
+.join{text-align:left;padding-bottom:5rem}
+.btns{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.75rem}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:.8rem 1.6rem;border-radius:999px;
+  font-family:var(--display);font-weight:700;font-size:1.3rem;text-decoration:none;letter-spacing:.01em
+}
+.btn-primary{background:var(--ember);color:#1A1326}
+.btn-ghost{border:1.5px solid var(--ash);color:var(--ash)}
+.timeline{list-style:none;padding:0;margin:2rem 0 0;display:grid;gap:1rem;grid-template-columns:1fr}
+@media(min-width:760px){.timeline{grid-template-columns:repeat(4,1fr)}}
+.timeline li{border-top:2px solid var(--line);padding-top:.75rem}
+.timeline b{display:block;font-family:var(--display);font-size:1.25rem;color:var(--marula)}
+.timeline span{font-size:1rem;color:var(--ash-dim)}
+
+footer{padding:2.5rem 0 calc(2.5rem + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);font-size:.95rem;color:var(--ash-dim)}
+footer p{margin:0}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-photo,.flame{animation:none}
+}
+</style>
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+
+<main>
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="wrap hero-copy">
+    <h1>Unleash<br>your wild<br>side</h1>
+    <p class="sub">I'm heading to the Kruger, either a quick four nights or a full week. Game drives at dawn, braais at dusk, a fire every night. There's space in the car if you want in.</p>
+    <ul class="facts">
+      <li>4 or 7 nights<span>Your pick</span></li>
+      <li>Skukuza to Satara<span>Kruger National Park</span></li>
+      <li>Small crew<span>2 to 8 people</span></li>
+      <li>From about R5,900<span>each, if the car's full</span></li>
+    </ul>
+  </div>
+  <img class="hero-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Kruger_National_Park_(ZA),_Elefant_--_2024_--_0649.jpg?width=2400" alt="An elephant walking through a dry riverbed in the Kruger National Park" fetchpriority="high" onerror="this.remove()">
+  <div class="hero-shade" aria-hidden="true"></div>
+  <a class="scroll-cue" href="#plan">See the plan</a>
+</header>
+
+<!-- ================= PLAN ================= -->
+<section id="plan">
+  <div class="wrap plan-grid">
+    <div class="prose">
+      <h2>The plan</h2>
+      <p class="lede">Drive in through the south, two nights at Skukuza, two at Satara, then out through Orpen Gate. One move, no backtracking, two very different parts of the park.</p>
+      <p>We camp in SANParks rest camps, cook our own food, and book guided drives for the best hours: sunset, night and sunrise. The rest of the time we self-drive the park, which costs nothing extra.</p>
+      <p class="muted">Aiming for the September university recess in 2027 (16 to 26 September), with the July recess as backup. Both are in the dry season: the bush is thinner, animals stay near water, nights are cool and malaria risk is lower.</p>
+    </div>
+    <figure class="map">
+      <svg viewBox="0 0 800 420" role="img" aria-labelledby="mapTitle">
+        <title id="mapTitle">Route: Pretoria to Paul Kruger Gate, Skukuza, Satara, Orpen Gate, and back to Pretoria</title>
+        <path d="M470 40 L760 30 L780 400 L470 400 C500 300 450 200 470 40Z" fill="#8A9A5B" opacity=".16"/>
+        <text x="760" y="388" text-anchor="end" fill="#8A9A5B" font-family="Newsreader, serif" font-style="italic" font-size="20">Kruger National Park</text>
+        <!-- outbound -->
+        <path d="M80 300 C220 330 380 320 520 300" fill="none" stroke="#FF8A3D" stroke-width="4" stroke-linecap="round"/>
+        <!-- in park -->
+        <path d="M520 300 L568 292 C600 240 630 190 650 140" fill="none" stroke="#F2C14E" stroke-width="4" stroke-linecap="round"/>
+        <path d="M650 140 L560 120" fill="none" stroke="#F2C14E" stroke-width="4" stroke-linecap="round"/>
+        <!-- return -->
+        <path d="M560 120 C420 100 220 140 80 300" fill="none" stroke="#F1E9DA" stroke-width="3" stroke-dasharray="8 9" stroke-linecap="round" opacity=".8"/>
+        <g font-family="Newsreader, serif" fill="#F1E9DA">
+          <circle cx="80" cy="300" r="9" fill="#F1E9DA"/>
+          <text x="80" y="335" text-anchor="middle" font-size="22">Pretoria</text>
+          <circle cx="520" cy="300" r="7" fill="#FF8A3D"/>
+          <text x="512" y="335" text-anchor="end" font-size="18" fill="#C9BFAE">Paul Kruger Gate</text>
+          <circle cx="568" cy="292" r="11" fill="#F2C14E"/>
+          <text x="586" y="318" font-size="22" font-weight="500">Skukuza</text>
+          <text x="586" y="342" font-size="16" fill="#C9BFAE">Nights 1 and 2</text>
+          <circle cx="650" cy="140" r="11" fill="#F2C14E"/>
+          <text x="668" y="146" font-size="22" font-weight="500">Satara</text>
+          <text x="668" y="170" font-size="16" fill="#C9BFAE">Nights 3 and 4</text>
+          <circle cx="560" cy="120" r="7" fill="#F1E9DA"/>
+          <text x="548" y="98" text-anchor="end" font-size="18" fill="#C9BFAE">Orpen Gate</text>
+          <text x="300" y="350" text-anchor="middle" font-size="17" fill="#FF8A3D">about 480 km in</text>
+          <text x="300" y="150" text-anchor="middle" font-size="17" fill="#C9BFAE">about 530 km home</text>
+          <text x="640" y="236" font-size="16" fill="#F2C14E">95 km</text>
+        </g>
+      </svg>
+      <div class="keyrow"><span><i style="background:#FF8A3D"></i>Drive in</span><span><i style="background:#F2C14E"></i>Inside the park</span><span><i style="background:repeating-linear-gradient(90deg,#F1E9DA 0 6px,transparent 6px 11px)"></i>Drive home</span></div>
+      <figcaption>The 4-night route. Not to scale. About 1,400 km in total, including game driving.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= OPTIONS ================= -->
+<section id="options">
+  <div class="wrap">
+    <div class="prose">
+      <h2>Two ways to do it</h2>
+      <p class="lede">A quick four nights in the south and centre, or a full week that runs almost half the length of the park.</p>
+    </div>
+    <div class="options">
+      <article class="opt">
+        <h3>4 nights</h3>
+        <p class="price">About R5,900 <span>each, full car of 4</span></p>
+        <ul class="stops">
+          <li><b>Enter at Paul Kruger Gate</b><span>about 480 km</span></li>
+          <li><b>Skukuza</b><span>2 nights</span></li>
+          <li><b>Satara</b><span>2 nights</span></li>
+          <li><b>Exit at Orpen Gate</b><span>about 530 km home</span></li>
+        </ul>
+        <p>3 guided drives: sunset, night and sunrise. Fits a long weekend or a short recess.</p>
+      </article>
+      <article class="opt long">
+        <h3>7 nights</h3>
+        <p class="price">About R9,400 <span>each, full car of 4</span></p>
+        <ul class="stops">
+          <li><b>Enter at Crocodile Bridge</b><span>about 470 km</span></li>
+          <li><b>Lower Sabie</b><span>2 nights</span></li>
+          <li><b>Skukuza</b><span>2 nights</span></li>
+          <li><b>Satara</b><span>2 nights</span></li>
+          <li><b>Olifants</b><span>1 night</span></li>
+          <li><b>Exit at Phalaborwa Gate</b><span>about 480 km home</span></li>
+        </ul>
+        <p>5 guided drives, river camps and a night on the cliffs above the Olifants River. Book only 2 drives and it drops to about R7,400.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ITINERARY ================= -->
+<section id="days">
+  <div class="wrap">
+    <div class="prose">
+      <h2>Day by day: 4 nights</h2>
+      <p class="lede">Early mornings, slow middays, and a fire every night.</p>
+    </div>
+    <ol class="days">
+      <li class="day">
+        <div class="day-num" aria-hidden="true">1</div>
+        <div>
+          <p class="day-when">Thursday</p>
+          <h3>Pretoria to Skukuza</h3>
+          <ul>
+            <li>Leave Pretoria at 05:00 and take the N4 east, with a food shop in Nelspruit or Hazyview.</li>
+            <li>Enter at Paul Kruger Gate and game-drive slowly into camp.</li>
+            <li>Set up camp, then braai and the first fire.</li>
+          </ul>
+          <span class="drive-tag">Guided sunset drive</span>
+        </div>
+      </li>
+      <li class="day">
+        <div class="day-num" aria-hidden="true">2</div>
+        <div>
+          <p class="day-when">Friday</p>
+          <h3>Skukuza</h3>
+          <ul>
+            <li>Self-drive at gate opening, when the animals are most active.</li>
+            <li>Lake Panic bird hide, then the pool and rest through the heat.</li>
+            <li>Afternoon self-drive along the Sabie River.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="day">
+        <div class="day-num" aria-hidden="true">3</div>
+        <div>
+          <p class="day-when">Saturday</p>
+          <h3>Skukuza to Satara</h3>
+          <ul>
+            <li>Pack up and take the slow road north, about 95 km.</li>
+            <li>Brunch stop at Tshokwane picnic spot.</li>
+            <li>Set up at Satara, which is big-cat country.</li>
+          </ul>
+          <span class="drive-tag">Guided night drive</span>
+        </div>
+      </li>
+      <li class="day">
+        <div class="day-num" aria-hidden="true">4</div>
+        <div>
+          <p class="day-when">Sunday</p>
+          <h3>Satara</h3>
+          <ul>
+            <li>Early start out in the bush.</li>
+            <li>Free afternoon to rest, self-drive or hang at the waterhole.</li>
+            <li>Last-night feast around the fire.</li>
+          </ul>
+          <span class="drive-tag">Guided sunrise drive</span>
+        </div>
+      </li>
+      <li class="day">
+        <div class="day-num" aria-hidden="true">5</div>
+        <div>
+          <p class="day-when">Monday</p>
+          <h3>Satara to home</h3>
+          <ul>
+            <li>Pack up and game-drive out through Orpen Gate.</li>
+            <li>Home in Pretoria by evening, about 530 km.</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= COST ================= -->
+<section id="cost">
+  <div class="wrap">
+    <div class="prose">
+      <h2>What it costs</h2>
+      <p class="lede">The more of us there are, the cheaper it gets. Campsites and fuel are shared, so a full car is the sweet spot.</p>
+      <p class="muted">Numbers are set a bit above average, with a 10% buffer on top. Whatever's left over at the end gets split back.</p>
+    </div>
+    <div class="cost-grid" style="margin-top:2.5rem">
+      <div class="controls">
+        <div>
+          <span class="control-label" id="lbl-crew">How many of us</span>
+          <div class="stepper" role="group" aria-labelledby="lbl-crew">
+            <button type="button" id="cMinus" aria-label="One fewer person">&minus;</button>
+            <output id="crew" aria-live="polite">4</output>
+            <button type="button" id="cPlus" aria-label="One more person">+</button>
+          </div>
+          <p class="muted" style="font-size:1rem;margin-top:.5rem" id="crewHint"></p>
+        </div>
+        <div>
+          <span class="control-label" id="lbl-nights">Nights</span>
+          <div class="seg" role="group" aria-labelledby="lbl-nights" data-key="nights">
+            <button type="button" data-val="4" aria-pressed="true">4 nights</button>
+            <button type="button" data-val="7" aria-pressed="false">7 nights</button>
+          </div>
+        </div>
+        <div>
+          <span class="control-label" id="lbl-stay">Sleeping</span>
+          <div class="seg" role="group" aria-labelledby="lbl-stay" data-key="stay">
+            <button type="button" data-val="camp" aria-pressed="true">Camping</button>
+            <button type="button" data-val="bung" aria-pressed="false">Bungalow, 2 sharing</button>
+          </div>
+        </div>
+        <div>
+          <span class="control-label" id="lbl-card">Wild Card</span>
+          <div class="seg" role="group" aria-labelledby="lbl-card" data-key="card">
+            <button type="button" data-val="no" aria-pressed="true">Don't have one</button>
+            <button type="button" data-val="yes" aria-pressed="false">Have one</button>
+          </div>
+          <p class="muted" style="font-size:1rem;margin-top:.5rem;max-width:26rem">A SANParks Wild Card (R895 a year) means no daily conservation fees. Bought just before this trip, it still covers Kgalagadi the year after.</p>
+        </div>
+        <div>
+          <span class="control-label" id="lbl-drives">Guided drives</span>
+          <div class="stepper" role="group" aria-labelledby="lbl-drives">
+            <button type="button" id="dMinus" aria-label="One fewer guided drive">&minus;</button>
+            <output id="drives" aria-live="polite">3</output>
+            <button type="button" id="dPlus" aria-label="One more guided drive">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="receipt" aria-live="polite">
+        <h3>Your share</h3>
+        <table>
+          <tbody id="lines"></tbody>
+        </table>
+        <div class="total"><span>Per person</span><strong id="total">R5,900</strong></div>
+        <p class="note">Rounded to the nearest R100. Based on 2027 SANParks rates and petrol at about R30 a litre. The Wild Card itself isn't in the total, since it lasts a full year.</p>
+      </div>
+    </div>
+
+    <div class="pay">
+      <div><h3>Say you're in</h3><p>WhatsApp me, and we'll pick dates that work.</p></div>
+      <div><h3>Pay your booking share</h3><p>Your part of the campsite and guided drives, when I book.</p></div>
+      <div><h3>Split the rest on the trip</h3><p>Food and fuel get split as we go. Nothing complicated.</p></div>
+    </div>
+
+    <div class="incl">
+      <div>
+        <h3>Included</h3>
+        <ul>
+          <li>Campsites or bungalows</li>
+          <li>Kruger conservation fees, unless you have a Wild Card</li>
+          <li>Guided game drives</li>
+          <li>Shared meals</li>
+          <li>Your share of the fuel</li>
+          <li>Firewood, ice and gas</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Not included</h3>
+        <ul>
+          <li>Your own snacks and drinks</li>
+          <li>Curios and shop stops</li>
+          <li>A tent and sleeping bag. Shout if you don't have one, we'll sort something out.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TEAMS ================= -->
+<section id="teams">
+  <div class="wrap">
+    <div class="prose">
+      <h2>How we roll</h2>
+      <p class="lede">Small crew, so no rosters. Everyone pitches in.</p>
+    </div>
+    <div class="fixed">
+      <div><h3>Take turns</h3><p>Cooking, washing up and firewood swap around each day. Whoever cooks doesn't wash.</p></div>
+      <div><h3>Early starts</h3><p>Gates open at sunrise and that's when the animals move. Midday is for naps and the pool.</p></div>
+      <div><h3>Drivers swap</h3><p>If more than one of us can drive, we share the long stretches so nobody's wrecked.</p></div>
+      <div><h3>No pressure</h3><p>Want to sit out a drive and read by the river? Go for it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SAFETY & PACKING ================= -->
+<section id="ready">
+  <div class="wrap two">
+    <div>
+      <h2>Before we go</h2>
+      <ul class="safety">
+        <li><strong>Medical and next of kin</strong><span>Send me your allergies, medication and an emergency contact before we leave.</span></li>
+        <li><strong>Malaria check</strong><span>Kruger is a malaria area. Talk to a pharmacy or doctor a few weeks before.</span></li>
+        <li><strong>First aid</strong><span>There'll be a proper first aid kit in the car.</span></li>
+        <li><strong>Park rules</strong><span>Stay in vehicles outside camps, and be through the gate before it closes. Late arrivals get fined.</span></li>
+        <li><strong>Lock up the food</strong><span>Camps are fenced, but monkeys, baboons and honey badgers raid tents and cooler boxes. Food goes in cars at night.</span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="pack-head">
+        <h2>Pack list</h2>
+        <span class="pack-count" id="packCount" aria-live="polite"></span>
+      </div>
+      <p class="muted" style="font-size:1rem">Tick items off as you pack. Your ticks stay saved in this browser.</p>
+      <ul class="pack" id="pack"></ul>
+      <button type="button" class="reset" id="packReset">Clear my ticks</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FIRE ================= -->
+<section id="fire" class="fire-section">
+  <div class="wrap">
+    <div class="prose">
+      <h2>Around the fire</h2>
+      <p class="lede">After dinner, two or three songs on the guitar and a short word around the fire. No speakers, just the bush. Join in or just enjoy the fire.</p>
+      <p class="muted">The thread for the week: become one with the wild. Four nights, four ideas from creation.</p>
+    </div>
+    <ul class="nights">
+      <li><p class="when">Thursday, Skukuza</p><h3>Made, not manufactured</h3><p>Genesis 1. Everything out there was spoken into being, and so were we.</p></li>
+      <li><p class="when">Friday, Skukuza</p><h3>Ask the animals</h3><p>Job 12:7–10. What the bush teaches about who holds it all together.</p></li>
+      <li><p class="when">Saturday, Satara</p><h3>Bold as a lion</h3><p>Proverbs 28:1. Courage that doesn't come from being the loudest.</p></li>
+      <li><p class="when">Sunday, Satara</p><h3>Be still</h3><p>Psalm 46:10. Last night. Phones away, fire low, just listen.</p></li>
+    </ul>
+    <div class="fire" aria-hidden="true">
+      <div class="glow"></div>
+      <div class="flame f1"></div>
+      <div class="flame f2"></div>
+      <div class="flame f3"></div>
+      <svg class="logs" viewBox="0 0 170 44"><rect x="10" y="18" width="150" height="16" rx="8" fill="#3A2A1E" transform="rotate(-9 85 26)"/><rect x="10" y="18" width="150" height="16" rx="8" fill="#4A3424" transform="rotate(9 85 26)"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq">
+  <div class="wrap faq prose">
+    <h2>Questions</h2>
+    <details><summary>Is it safe to sleep in a tent?</summary><p>Yes. Rest camps are fenced and staffed. The real risk is monkeys and honey badgers going after food, so food stays locked in the car.</p></details>
+    <details><summary>I don't have camping gear.</summary><p>Tell me. Between us we can usually borrow what's missing before anyone has to hire.</p></details>
+    <details><summary>Can I bring a friend?</summary><p>Please do. Every extra person makes it cheaper for everyone, up to two full cars.</p></details>
+    <details><summary>What if I can only do a few days?</summary><p>Message me. If you have your own car, you can join for part of it.</p></details>
+    <details><summary>Is there a student discount?</summary><p>Not at SANParks, sadly. The best saving is a Wild Card: R895 for a year of free entry to every national park. On the 4-night trip it saves about R700 in conservation fees, and if you come to Kgalagadi in 2028 too, it pays for itself twice over.</p></details>
+    <details><summary>Any other ways to save?</summary><p>SANParks sometimes drops campsite prices by 20 to 50% at short notice, mostly midweek at quieter camps. If one lands on our dates, the savings get split back to everyone.</p></details>
+    <details><summary>Do I need malaria pills?</summary><p>Kruger is a malaria area. Ask a pharmacy or doctor a few weeks before.</p></details>
+  </div>
+</section>
+
+<!-- ================= ROAD AHEAD ================= -->
+<section id="next" class="next">
+  <div class="wrap">
+    <div class="prose">
+      <h2>And after Kruger</h2>
+      <p class="lede">This is the first of a few. Every year, one park, same idea: camp, cook, drive, fire.</p>
+    </div>
+    <ol class="road">
+      <li class="now"><span class="yr">2027</span><h3>Kruger</h3><p>Skukuza to Satara. Big Five, guided drives, the classic.</p></li>
+      <li class="dune"><span class="yr">2028</span><h3>Kgalagadi</h3><p>Red dunes, black-maned lions, huge skies. About 1,100 km each way, so it'll be a full week in the July recess.</p></li>
+      <li><span class="yr">2029</span><h3>Kruger again, or the Garden Route</h3><p>Back to the bush, or swap it for forest, ocean and the Tsitsikamma coast. We'll vote.</p></li>
+    </ol>
+    <p class="muted road-note">Buy a Wild Card a week before Kruger in September 2027 and it's still valid for Kgalagadi in July 2028.</p>
+  </div>
+</section>
+
+<!-- ================= JOIN ================= -->
+<section id="join" class="join">
+  <div class="wrap">
+    <div class="prose">
+      <h2>Keen?</h2>
+      <p class="lede">I'm going either way. It'd just be better with a few more people around the fire. Camps book up early, so let me know soon.</p>
+    </div>
+    <div class="btns">
+      <a class="btn btn-primary" id="waLink" href="#">WhatsApp me</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Unleash your wild side. A Kruger trip by Piano. Friends of friends welcome.</p>
+    <p style="margin-top:.5rem;font-size:.85rem">Hero photo: Dietmar Rabich, <a href="https://commons.wikimedia.org/wiki/File:Kruger_National_Park_(ZA),_Elefant_--_2024_--_0649.jpg">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+  </div>
+</footer>
+
+<script>
+/* ===== Edit this before you publish ===== */
+const CONFIG = {
+  whatsapp: "27000000000"   // your number, country code, no + or spaces
+};
+document.getElementById("waLink").href =
+  "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent("Hey! I'm keen for the Kruger trip.");
+
+/* ===== Cost calculator =====
+   Shared costs (campsite, fuel, extras) are split across the crew.
+   One campsite and one car per 4 people; one bungalow per 2. */
+const RATES = {
+  campsitePerNight: 600, bungalowPerNight: 2400, conservationPerDay: 140, drive: 600, foodPerDay: 280,
+  fuelPerCar: {4: 3100, 7: 3700}, extrasPerCar: {4: 400, 7: 700}, buffer: 0.10
+};
+const state = { crew: 4, nights: 4, stay: "camp", drives: 3, card: "no" };
+const DEFAULT_DRIVES = {4: 3, 7: 5};
+const fmt = n => "R" + Math.round(n).toLocaleString("en-ZA").replace(/\u00a0|\s/g, ",");
+
+function render(){
+  const n = state.nights, days = n + 1, c = state.crew;
+  const cars = Math.ceil(c / 4);
+  const accTotal = state.stay === "camp"
+    ? Math.ceil(c / 4) * RATES.campsitePerNight * n
+    : Math.ceil(c / 2) * RATES.bungalowPerNight * n;
+  const rows = [
+    [(state.stay === "camp" ? "Campsite" : "Bungalow") + ", " + n + " nights", accTotal / c],
+    state.card === "yes"
+      ? ["Conservation fees, covered by Wild Card", 0]
+      : ["Conservation fees, " + days + " days", days * RATES.conservationPerDay],
+    [state.drives + " guided drive" + (state.drives > 1 ? "s" : ""), state.drives * RATES.drive],
+    ["Food, " + days + " days", days * RATES.foodPerDay],
+    ["Fuel share", cars * RATES.fuelPerCar[n] / c],
+    ["Firewood, ice, gas", cars * RATES.extrasPerCar[n] / c]
+  ];
+  const sub = rows.reduce((s, r) => s + r[1], 0);
+  const buf = sub * RATES.buffer;
+  const total = Math.round((sub + buf) / 100) * 100;
+  document.getElementById("lines").innerHTML =
+    rows.map(r => `<tr><td>${r[0]}</td><td>${fmt(r[1])}</td></tr>`).join("") +
+    `<tr class="sub"><td>10% buffer</td><td>${fmt(buf)}</td></tr>`;
+  document.getElementById("total").textContent = fmt(total);
+  document.getElementById("drives").textContent = state.drives;
+  document.getElementById("crew").textContent = c;
+  const spare = cars * 4 - c;
+  document.getElementById("crewHint").textContent =
+    c === 1 ? "Just me. Everything's on one person, so this is the priciest option."
+    : spare === 0 ? "Full car" + (cars > 1 ? "s" : "") + ". Best value."
+    : spare + " seat" + (spare > 1 ? "s" : "") + " left in the car. Fill " + (spare > 1 ? "them" : "it") + " and everyone pays less.";
+}
+document.querySelectorAll(".seg").forEach(g => {
+  g.addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    g.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b));
+    const v = b.dataset.val; state[g.dataset.key] = isNaN(v) ? v : Number(v);
+    if (g.dataset.key === "nights") state.drives = DEFAULT_DRIVES[state.nights];
+    render();
+  });
+});
+document.getElementById("dMinus").onclick = () => { state.drives = Math.max(1, state.drives - 1); render(); };
+document.getElementById("dPlus").onclick  = () => { state.drives = Math.min(8, state.drives + 1); render(); };
+document.getElementById("cMinus").onclick = () => { state.crew = Math.max(1, state.crew - 1); render(); };
+document.getElementById("cPlus").onclick  = () => { state.crew = Math.min(8, state.crew + 1); render(); };
+render();
+
+/* ===== Packing list ===== */
+const ITEMS = [
+  "Tent, if you have one", "Sleeping bag and mat", "Pillow", "Headlamp or torch",
+  "Warm jacket for night drives", "Beanie", "Neutral-coloured clothes", "Closed shoes",
+  "Slops for showers", "Hat and sunscreen", "Insect repellent", "Malaria meds, if prescribed",
+  "Your own medication", "ID document", "Water bottle", "Plate, mug and cutlery",
+  "Towel and toiletries", "Binoculars, if you have", "Phone charger and power bank", "Bible and journal",
+  "Guitar, if you play"
+];
+const KEY = "wildside-pack";
+let ticked = [];
+try { ticked = JSON.parse(localStorage.getItem(KEY) || "[]"); } catch (e) { ticked = []; }
+const packEl = document.getElementById("pack");
+packEl.innerHTML = ITEMS.map((t, i) =>
+  `<li><input type="checkbox" id="p${i}" ${ticked.includes(i) ? "checked" : ""}><label for="p${i}">${t}</label></li>`
+).join("");
+function updateCount(){
+  const done = packEl.querySelectorAll("input:checked").length;
+  document.getElementById("packCount").textContent = done + " of " + ITEMS.length + " packed";
+}
+packEl.addEventListener("change", () => {
+  ticked = [...packEl.querySelectorAll("input")].map((c, i) => c.checked ? i : -1).filter(i => i >= 0);
+  try { localStorage.setItem(KEY, JSON.stringify(ticked)); } catch (e) {}
+  updateCount();
+});
+document.getElementById("packReset").onclick = () => {
+  packEl.querySelectorAll("input").forEach(c => c.checked = false);
+  ticked = []; try { localStorage.removeItem(KEY); } catch (e) {}
+  updateCount();
+};
+updateCount();
+
+/* ===== Sunset to night: sky darkens and stars appear as you scroll ===== */
+const stops = [[59,42,85],[42,33,64],[31,26,51],[22,20,42],[14,13,30],[10,9,22]];
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+let stars = [];
+function sizeStars(){
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  canvas.width = innerWidth * dpr; canvas.height = innerHeight * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const count = Math.round(innerWidth * innerHeight / 5200);
+  stars = Array.from({length: count}, () => ({
+    x: Math.random() * innerWidth, y: Math.random() * innerHeight,
+    r: Math.random() * 1.3 + .25, a: Math.random() * .7 + .3
+  }));
+  ctx.clearRect(0, 0, innerWidth, innerHeight);
+  stars.forEach(s => { ctx.globalAlpha = s.a; ctx.fillStyle = "#F1E9DA"; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fill(); });
+}
+function onScroll(){
+  const max = document.documentElement.scrollHeight - innerHeight;
+  const p = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+  const seg = p * (stops.length - 1), i = Math.min(stops.length - 2, Math.floor(seg)), t = seg - i;
+  const c = stops[i].map((v, k) => Math.round(v + (stops[i + 1][k] - v) * t));
+  document.body.style.backgroundColor = `rgb(${c.join(",")})`;
+  canvas.style.opacity = Math.max(0, (p - 0.12) / 0.6).toFixed(3);
+}
+sizeStars(); onScroll();
+addEventListener("scroll", onScroll, {passive: true});
+addEventListener("resize", () => { sizeStars(); onScroll(); });
+</script>
+</body>
+</html>
