@@ -670,7 +670,7 @@ const CONFIG = {
   if (!el || typeof L === "undefined") return;
 
   const stops = {
-    pretoria: { lat: -25.7479, lng: 28.2293, name: "Pretoria", kind: "home", align: "left" },
+    pretoria: { lat: -25.7479, lng: 28.2293, name: "Pretoria", kind: "home", align: "right" },
     paulKruger: { lat: -25.0006, lng: 31.4851, name: "Paul Kruger Gate", kind: "gate", align: "left" },
     skukuza: { lat: -24.9958, lng: 31.5912, name: "Skukuza", sub: "Nights 1 and 2", kind: "camp", align: "right" },
     satara: { lat: -24.3923, lng: 31.7778, name: "Satara", sub: "Nights 3 and 4", kind: "camp", align: "right" },
@@ -718,19 +718,32 @@ const CONFIG = {
     });
   }
 
-  const markers = Object.values(stops).map(stop =>
+  Object.values(stops).forEach(stop =>
     L.marker([stop.lat, stop.lng], { icon: pinIcon(stop), keyboard: false, interactive: false }).addTo(map)
   );
 
   const bounds = L.latLngBounds(Object.values(stops).map(s => [s.lat, s.lng]));
-  map.fitBounds(bounds, { padding: [36, 36], maxZoom: 8 });
+  function fitRoute(){
+    const narrow = el.clientWidth < 520;
+    map.fitBounds(bounds, {
+      padding: narrow ? [28, 40] : [44, 48],
+      maxZoom: narrow ? 7 : 8
+    });
+  }
+  fitRoute();
 
-  // Keep tiles sharp if the figure resizes (grid / mobile orientation).
-  const ro = typeof ResizeObserver !== "undefined"
-    ? new ResizeObserver(() => { map.invalidateSize(); })
-    : null;
-  if (ro) ro.observe(el);
-  else addEventListener("resize", () => map.invalidateSize(), { passive: true });
+  // Keep tiles sharp and the full route framed when the figure resizes.
+  let resizeTimer = 0;
+  function onMapResize(){
+    map.invalidateSize();
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(fitRoute, 80);
+  }
+  if (typeof ResizeObserver !== "undefined") {
+    new ResizeObserver(onMapResize).observe(el);
+  } else {
+    addEventListener("resize", onMapResize, { passive: true });
+  }
 
   // Enable wheel zoom only after the user engages the map.
   map.on("focus click", () => map.scrollWheelZoom.enable());
