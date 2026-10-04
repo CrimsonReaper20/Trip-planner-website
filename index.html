@@ -86,10 +86,10 @@ section{padding:clamp(4.5rem,11vw,8rem) 0}
 .plan-grid{display:grid;gap:3rem;grid-template-columns:1fr}
 @media(min-width:900px){.plan-grid{grid-template-columns:5fr 6fr;align-items:start}}
 .map{border:1px solid var(--line);border-radius:18px;padding:1rem;background:rgba(0,0,0,.12)}
-.map svg{display:block;width:100%;height:auto}
+.route-map{
+  display:block;width:100%;height:auto;border-radius:12px;background:#2a2430
+}
 .map figcaption{font-size:.9rem;color:var(--ash-dim);padding:.5rem .25rem 0}
-.keyrow{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;font-size:.9rem;color:var(--ash-dim);margin-top:.5rem}
-.keyrow i{display:inline-block;width:22px;height:3px;vertical-align:middle;margin-right:.4rem;border-radius:2px}
 
 /* ---------- Options ---------- */
 .options{display:grid;gap:2rem;grid-template-columns:1fr;margin-top:2.5rem}
@@ -296,37 +296,16 @@ footer p{margin:0}
       <p class="muted">Aiming for the September university recess in 2027 (16 to 26 September), with the July recess as backup. Both are in the dry season: the bush is thinner, animals stay near water, nights are cool and malaria risk is lower.</p>
     </div>
     <figure class="map">
-      <svg viewBox="0 0 800 420" role="img" aria-labelledby="mapTitle">
-        <title id="mapTitle">Route: Pretoria to Paul Kruger Gate, Skukuza, Satara, Orpen Gate, and back to Pretoria</title>
-        <path d="M470 40 L760 30 L780 400 L470 400 C500 300 450 200 470 40Z" fill="#8A9A5B" opacity=".16"/>
-        <text x="760" y="388" text-anchor="end" fill="#8A9A5B" font-family="Newsreader, serif" font-style="italic" font-size="20">Kruger National Park</text>
-        <!-- outbound -->
-        <path d="M80 300 C220 330 380 320 520 300" fill="none" stroke="#FF8A3D" stroke-width="4" stroke-linecap="round"/>
-        <!-- in park -->
-        <path d="M520 300 L568 292 C600 240 630 190 650 140" fill="none" stroke="#F2C14E" stroke-width="4" stroke-linecap="round"/>
-        <path d="M650 140 L560 120" fill="none" stroke="#F2C14E" stroke-width="4" stroke-linecap="round"/>
-        <!-- return -->
-        <path d="M560 120 C420 100 220 140 80 300" fill="none" stroke="#F1E9DA" stroke-width="3" stroke-dasharray="8 9" stroke-linecap="round" opacity=".8"/>
-        <g font-family="Newsreader, serif" fill="#F1E9DA">
-          <circle cx="80" cy="300" r="9" fill="#F1E9DA"/>
-          <text x="80" y="335" text-anchor="middle" font-size="22">Pretoria</text>
-          <circle cx="520" cy="300" r="7" fill="#FF8A3D"/>
-          <text x="512" y="335" text-anchor="end" font-size="18" fill="#C9BFAE">Paul Kruger Gate</text>
-          <circle cx="568" cy="292" r="11" fill="#F2C14E"/>
-          <text x="586" y="318" font-size="22" font-weight="500">Skukuza</text>
-          <text x="586" y="342" font-size="16" fill="#C9BFAE">Nights 1 and 2</text>
-          <circle cx="650" cy="140" r="11" fill="#F2C14E"/>
-          <text x="668" y="146" font-size="22" font-weight="500">Satara</text>
-          <text x="668" y="170" font-size="16" fill="#C9BFAE">Nights 3 and 4</text>
-          <circle cx="560" cy="120" r="7" fill="#F1E9DA"/>
-          <text x="548" y="98" text-anchor="end" font-size="18" fill="#C9BFAE">Orpen Gate</text>
-          <text x="300" y="350" text-anchor="middle" font-size="17" fill="#FF8A3D">about 480 km in</text>
-          <text x="300" y="150" text-anchor="middle" font-size="17" fill="#C9BFAE">about 530 km home</text>
-          <text x="640" y="236" font-size="16" fill="#F2C14E">95 km</text>
-        </g>
-      </svg>
-      <div class="keyrow"><span><i style="background:#FF8A3D"></i>Drive in</span><span><i style="background:#F2C14E"></i>Inside the park</span><span><i style="background:repeating-linear-gradient(90deg,#F1E9DA 0 6px,transparent 6px 11px)"></i>Drive home</span></div>
-      <figcaption>The 4-night route. Not to scale. About 1,400 km in total, including game driving.</figcaption>
+      <img
+        class="route-map"
+        src="route-map.png"
+        width="1398"
+        height="837"
+        alt="Satellite map of the trip route from Pretoria through Kruger, with Skukuza and Satara on the way, then back to Pretoria"
+        decoding="async"
+        fetchpriority="low"
+      >
+      <figcaption>The 4-night route on the map. About 1,400 km in total, including game driving.</figcaption>
     </figure>
   </div>
 </section>
